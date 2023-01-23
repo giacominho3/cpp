@@ -6,9 +6,12 @@ class Cat : public Animal
 {
 	protected:
 
-	std::string	type;
+	std::string	_type;
 
 	public:
+
+	Cat();
+
 	void	makeSound();
 };
 
