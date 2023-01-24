@@ -1,8 +1,8 @@
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
 #include <iostream>
 
-class Animal
+class WrongAnimal
 {
 	protected:
 
@@ -10,8 +10,8 @@ class Animal
 
 	public:
 
-	Animal();
-	~Animal();
+	WrongAnimal();
+	~WrongAnimal();
 
 	std::string		getType();
 	void			setType(std::string t);

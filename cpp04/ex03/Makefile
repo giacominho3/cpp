@@ -1,4 +1,4 @@
-NAME		= animals
+NAME		= materia
 
 CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
@@ -6,11 +6,11 @@ RM			= rm -rf
 
 OBJDIR = .objFiles
 
-FILES		= main Animal Cat Dog WrongAnimal WrongCat
+FILES		= main AMateria Ice Cure Character MateriaSource
 
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
-HEADER		= Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
+HEADER		= AMateria.hpp Ice.hpp Cure.hpp Character.hpp ICharacter.hpp MateriaSource.hpp IMateriaSource.hpp
 
 #Colors:
 GREEN		=	\e[92;5;118m

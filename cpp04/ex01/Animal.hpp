@@ -11,7 +11,7 @@ class Animal
 	public:
 
 	Animal();
-	~Animal();
+	virtual ~Animal();
 
 	std::string		getType();
 	void			setType(std::string t);
