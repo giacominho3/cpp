@@ -37,7 +37,7 @@ class PhoneBook
 			int i = str.size();
 			while (i < 10)
 			{
-				temp += ' ';
+				temp.insert(0, " ");
 				i++;
 			}
 		}
@@ -57,11 +57,11 @@ class PhoneBook
 		}
 
 		i = 0;
-		std::cout << "FIRST NAME | " << "LAST NAME  | " << "NICKNAME   | " << "PHONE NUMB  | " << std::endl;
-		std::cout << "----------------------------------------------------" << std::endl;
+		std::cout << "FIRST NAME|" << " LAST NAME|" << "  NICKNAME|" << "PHONE NUMB|" << std::endl;
+		std::cout << "--------------------------------------------" << std::endl;
 		while (i < occ)
 		{
-			std::cout << fill(contacts[i].getFirstName()) << " | " << fill(contacts[i].getLastName()) << " | " << fill(contacts[i].getNickname()) << " | " << fill(contacts[i].getPhoneNumber()) << "  |" << std::endl;
+			std::cout << fill(contacts[i].getFirstName()) << "|" << fill(contacts[i].getLastName()) << "|" << fill(contacts[i].getNickname()) << "|" << fill(contacts[i].getPhoneNumber()) << "|" << std::endl;
 			i++;
 		}
 		std::cout << std::endl;
@@ -69,7 +69,6 @@ class PhoneBook
 
 	void add()
 	{
-		std::cout << this->index << std::endl;
 		if (this->index % 8 == 0 && this->index != 0)
 		{
 			char		response;
