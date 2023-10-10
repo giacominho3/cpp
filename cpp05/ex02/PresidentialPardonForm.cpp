@@ -6,8 +6,11 @@ PresidentialPardonForm::PresidentialPardonForm():AForm("Presidential Pardon Form
 	this->_target = "Dummy";
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string t) : AForm(t, 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string t) : AForm("Presidential Pardon Form", 25, 5)
 {
+	this->_name = "Presidential Pardon Form";
+	this->_gToSign = 25;
+	this->_gToExec = 5;
     this->_target = t;
     std::cout << this->_name << " created with " << this->_target << " as its target" << std::endl;
 }
@@ -73,7 +76,7 @@ void PresidentialPardonForm::beSigned(Bureaucrat const &bcrat)
 {
    if (this->_isSigned == true)
         std::cout << "This form is already signed" << std::endl;
-    else if (this->_gToSign >= bcrat.getGrade())
+    else if (this->_gToSign <= bcrat.getGrade())
 	{
         std::cout << "Bureaucrat " << bcrat.getName() << " isn't important enough to sign this PPF" << std::endl;
         throw GradeTooLowException();
@@ -103,7 +106,6 @@ const char *PresidentialPardonForm::PresidentialException::what(void) const thro
 
 void PresidentialPardonForm::execute(const Bureaucrat & executor) const
 {
-	std::cout << executor.getGrade() << std::endl;
 	if (this->_isSigned == true && executor.getGrade() <= this->_gToExec)
 		std::cout << this->getTarget() << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 	else

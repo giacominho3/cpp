@@ -8,6 +8,9 @@ RobotomyRequestForm::RobotomyRequestForm():AForm("Robotomy Request Form", 72, 45
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string t):AForm("Robotomy Request Form", 72, 45)
 {
+	this->_name = "Robotomy Request Form";
+	this->_gToSign = 72;
+	this->_gToExec = 45;
 	this->_target = t;
     std::cout << this->_name << " created with " << this->_target << " as its target" << std::endl;
 }
@@ -73,7 +76,7 @@ void RobotomyRequestForm::beSigned(Bureaucrat const &bcrat)
 {
    if (this->_isSigned == true)
         std::cout << "This form is already signed" << std::endl;
-    else if (this->_gToSign >= bcrat.getGrade())
+    else if (this->_gToSign <= bcrat.getGrade())
 	{
         std::cout << "Bureaucrat " << bcrat.getName() << " isn't important enough to sign this RRF" << std::endl;
         throw GradeTooLowException();

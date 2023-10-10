@@ -1,13 +1,16 @@
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Shrubbery Creation Form", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm():AForm("Shrubbery Creation Form", 145, 137)
 {
     this->_target = "Dummy";
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string t) : AForm("Shrubbery Creation Form", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string t):AForm("Shrubbery Creation Form", 145, 137)
 {
+	this->_name = "Shrubbery Creation Form";
+	this->_gToSign = 145;
+	this->_gToExec = 137;
 	this->_target = t;
     std::cout << this->_name << " created with " << this->_target << " as its target" << std::endl;
 }
@@ -73,7 +76,7 @@ void ShrubberyCreationForm::beSigned(Bureaucrat const &bcrat)
 {
    if (this->_isSigned == true)
         std::cout << "This form is already signed" << std::endl;
-    else if (this->_gToSign >= bcrat.getGrade())
+    else if (this->_gToSign <= bcrat.getGrade())
 	{
         std::cout << "Bureaucrat " << bcrat.getName() << " isn't important enough to sign this SCF" << std::endl;
         throw GradeTooLowException();
@@ -98,7 +101,7 @@ const char *ShrubberyCreationForm::GradeTooHighException::what(void) const throw
 
 const char *ShrubberyCreationForm::ShrubberyException::what(void) const throw()
 {
-    return("This SCF can't be executed by this Bureaucrat, grade too low");
+    return("This SCF can't be executed, grade is too low or SCF isn't signed");
 }
 
 void ShrubberyCreationForm::execute(const Bureaucrat & executor) const
@@ -108,7 +111,8 @@ void ShrubberyCreationForm::execute(const Bureaucrat & executor) const
 		std::ofstream ppfFile("_shrubbery.txt");
 		ppfFile << "a tree is in here";
 		ppfFile.close();
+		std::cout << "A tree was planted" << std::endl;
 	}
 	else
-		throw AForm::GradeTooLowException();
+		throw ShrubberyException();
 }

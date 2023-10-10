@@ -16,8 +16,6 @@ AForm::AForm(const std::string n, int sg, int eg)
         throw GradeTooHighException();
     else if (sg > 150 || eg > 150)
         throw GradeTooLowException();
-    else if (sg > eg)
-        throw GradeTooHighException();
     else {
         this->_gToSign = sg;
         this->_gToExec = eg;
@@ -74,22 +72,6 @@ std::string AForm::isSigned(void) const
         return("True");
     else
         return("False");
-}
-
-void AForm::beSigned(Bureaucrat const &bcrat) 
-{
-   if (this->_isSigned == true)
-        std::cout << "This form is already signed" << std::endl;
-    else if (this->_gToSign >= bcrat.getGrade())
-	{
-        std::cout << "Bureaucrat " << bcrat.getName() << " isn't important enough to sign this form" << std::endl;
-        throw GradeTooLowException();
-    }
-    else 
-    {
-        this->_isSigned = true;
-        std::cout << "Bureaucrat " << bcrat.getName() << " has signed the " << this->_name << " form" << std::endl;
-    }
 }
 
 const char *AForm::GradeTooLowException::what(void) const throw()
