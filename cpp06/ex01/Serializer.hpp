@@ -10,7 +10,6 @@ class Serializer
 
 		Serializer();
 		Serializer(const Serializer& sc);
-		Serializer& operator=(const Serializer& sc);
 		~Serializer();
 
 		static uintptr_t serialize(Data* ptr);

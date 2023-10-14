@@ -11,12 +11,6 @@ Serializer::Serializer(const Serializer& copy)
 	*this = copy;
 }
 
-Serializer& Serializer::operator=(const Serializer& other)
-{
-	*this = other;
-	return *this;
-}
-
 Serializer::~Serializer()
 {
 	;
