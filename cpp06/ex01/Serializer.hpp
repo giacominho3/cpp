@@ -2,14 +2,13 @@
 #define SERIALIZER_HPP
 
 #include "Data.hpp"
-#include <cstdint>
+#include <stdint.h>
 
 class Serializer
 {
 	public:
 
 		Serializer();
-		Serializer(const Serializer& sc);
 		~Serializer();
 
 		static uintptr_t serialize(Data* ptr);

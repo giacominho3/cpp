@@ -1,14 +1,8 @@
 #include "Serializer.hpp"
-#include <cstdint>
 
 Serializer::Serializer()
 {
 	;
-}
-
-Serializer::Serializer(const Serializer& copy) 
-{
-	*this = copy;
 }
 
 Serializer::~Serializer()

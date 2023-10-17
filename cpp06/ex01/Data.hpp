@@ -2,7 +2,6 @@
 #define DATA_HPP
 
 #include <string>
-#include <cstdint>
 
 typedef struct s_data
 {
